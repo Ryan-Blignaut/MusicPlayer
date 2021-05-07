@@ -17,7 +17,6 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.2'
 
     implementation 'com.jfoenix:jfoenix:9.0.10'
-//    implementation group: 'de.jensd', name: 'fontawesomefx', version: '8.9'
 
 }
 
@@ -35,6 +34,8 @@ jar {
 }
 javafx {
     version = "11.0.2"
-    modules = ['javafx.controls', 'javafx.fxml']
+    modules = ["javafx.base", "javafx.controls", "javafx.fxml", "javafx.graphics", "javafx.media"]
 }
+
+
 mainClassName = 'github.theSilverEcho.music.player.RunMusic'

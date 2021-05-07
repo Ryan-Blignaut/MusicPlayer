@@ -25,19 +25,17 @@ public class MainMusicUi extends Application
 	@Override
 	public void start(Stage primaryStage) throws IOException
 	{
-		final URL url = this.getClass().getResource("/music/homeScreen.fxml");
+		final URL url = this.getClass().getResource("/music/loginScreen.fxml");
 		FXML_LOADER.setLocation(url);
-
+		stage = primaryStage;
 		final Scene scene = new Scene(new Group());
 		scene.setFill(Color.TRANSPARENT);
 		scene.setRoot(FXML_LOADER.load());
 
-		primaryStage.initStyle(StageStyle.TRANSPARENT);
-		primaryStage.setScene(scene);
+		stage.initStyle(StageStyle.TRANSPARENT);
+		stage.setScene(scene);
 
-		stage = primaryStage;
 		stage.show();
-
 		Blur.applyBlurToStage(stage, Blur.TRANSPARENT);
 	}
 }

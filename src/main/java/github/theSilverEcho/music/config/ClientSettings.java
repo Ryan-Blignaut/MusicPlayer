@@ -1,6 +1,7 @@
 package github.theSilverEcho.music.config;
 
 import github.theSilverEcho.music.config.selector.*;
+import github.theSilverEcho.music.util.VecHelper;
 
 import static github.theSilverEcho.music.config.PostSaveMethods.UPDATE_BLUR;
 
@@ -23,6 +24,16 @@ public class ClientSettings
 	@CategorySelector(category = Category.AUDIO)
 	@SliderSelector(min = 10, max = 90)
 	public static Double SLIDER_TEST = 55d;
+
+
+	@ConfigOption
+	@CategorySelector(category = Category.AUDIO)
+	@TextSelector
+	public static String TEXT_TEST = "Hello World";
+
+	@ConfigOption
+	public static VecHelper POSITION = new VecHelper();
+
 
 	public void create()
 	{

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane styleClass="main_panel" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="github.theSilverEcho.music.controller.HomeScreen">
+   <center>
+      <VBox prefHeight="745.0" prefWidth="500.0">
+         <children>
+            <HBox alignment="TOP_RIGHT" prefHeight="46.0" prefWidth="365.0">
+               <children>
+                  <JFXButton graphicTextGap="0.0" mnemonicParsing="false" onAction="#closeScreen" ripplerFill="#ff000000" styleClass="portal_enter" text="   ">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+               <padding>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </padding>
+            </HBox>
+            <TabPane fx:id="tabPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: rgba(50, 50, 50, 0.5);" styleClass="default_custom_pane" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS" />
+         </children>
+      </VBox>
+   </center>
+   <left>
+      <VBox alignment="TOP_CENTER" prefHeight="752.0" prefWidth="63.0" BorderPane.alignment="CENTER">
+         <children>
+            <JFXButton text="Button" />
+         </children>
+         <padding>
+            <Insets top="8.0" />
+         </padding></VBox>
+   </left>
+   <bottom>
+      <HBox prefHeight="70.0" prefWidth="563.0" BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>

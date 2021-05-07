@@ -3,10 +3,7 @@ package github.theSilverEcho.music.controller;
 import com.jfoenix.controls.JFXToggleButton;
 import github.theSilverEcho.music.config.Category;
 import github.theSilverEcho.music.config.Config;
-import github.theSilverEcho.music.config.selector.BooleanSelector;
-import github.theSilverEcho.music.config.selector.CategorySelector;
-import github.theSilverEcho.music.config.selector.MenuSelector;
-import github.theSilverEcho.music.config.selector.SliderSelector;
+import github.theSilverEcho.music.config.selector.*;
 import github.theSilverEcho.music.player.MainMusicUi;
 import github.theSilverEcho.music.util.ReflectionHelper;
 import javafx.beans.value.ObservableValue;
@@ -32,6 +29,7 @@ public class HomeScreen
 		map.put(MenuSelector.class, this::addMenuSelector);
 		map.put(SliderSelector.class, this::addSliderSelector);
 		map.put(BooleanSelector.class, this::addBooleanSelector);
+		map.put(TextSelector.class, this::addTextSelector);
 	}
 
 
@@ -44,15 +42,13 @@ public class HomeScreen
 	@FXML
 	private TabPane tabPane;
 
-
-	final EnumMap<Category, VBox> categoryVBoxMap = new EnumMap<>(Category.class);
-
 	@FXML
 	void initialize()
 	{
 		Config.getAllFields().forEach(this::genSettings);
 	}
 
+	final EnumMap<Category, VBox> categoryVBoxMap = new EnumMap<>(Category.class);
 
 	private void genSettings(Field field)
 	{
@@ -82,13 +78,20 @@ public class HomeScreen
 
 	}
 
+
+	private void addTextSelector(Field field, VBox vBox)
+	{
+		TextField textField = new TextField();
+//		JFXTextField textField = new JFXTextField();
+		addComponent(field, vBox, textField, String.class, TextField::setText, TextField::textProperty);
+	}
+
 	private void addSliderSelector(Field field, VBox vBox)
 	{
 		final SliderSelector selector = field.getAnnotation(SliderSelector.class);
 		Slider slider = new Slider();
 		slider.setMax(selector.max());
 		slider.setMin(selector.min());
-
 		addComponent(field, vBox, slider, Double.class, Slider::setValue, Slider::valueProperty);
 	}
 
